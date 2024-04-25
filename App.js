@@ -1,22 +1,42 @@
+import {NavigationContainer} from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, Image, ScrollView,  Alert, TextInput, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image, ScrollView,  Alert, TextInput, ImageBackground, Button} from 'react-native';
 import {images, names, nameList} from './imageList.js';
+import {Stack, MyStack} from './navigation.js';
 
-
-
+// onPress={() => console.log('You tapped the button!')}/>
+// <Image source={images.id=2} style={styles.imageStyle}/>
+// <Image source={images.id=1} style={styles.imageStyle}/>
 export default function App() {
   return (
+    <NavigationContainer>
       <View style={styles.container}>
-      <Image source={images.id=1} styles={{width:30, height:30}}/>
-      <StatusBar style="auto" />      
+      <Pressable 
+      onPress={()=> console.log("Pressed Button!")}
+      style={ ( { pressed } ) => {
+        return{opacity: pressed ? 0.5 : 1 }} 
+        }>
+      <Image source= {require("./assets/pizza.jpg")} style={styles.imageStyle}/>      
+      </Pressable>
 
+      <Button 
+      title="Next" 
+      color='blue' 
+      onPress={() => console.log('You tapped the button!')}/>
+
+
+      <StatusBar style="auto" />      
       </View>    
+    </NavigationContainer> 
   );
 }
 //<Image source={imageOne} style={styles.imageStyle}></Image>
 //<Image source={imageTwo} style={styles.imageStyle}></Image>
-const imageOne = require('./assets/pizza.jpg')
-const imageTwo = require('./assets/Classic-Lasagna.jpg')
+//const imageOne = require('./assets/pizza.jpg')
+//const imageTwo = require('./assets/Classic-Lasagna.jpg')
+
+//<ImageButton onPress={() => console.log("Button as component")}
+//imageStyle={styles.image} source={require("./assets/pizza.jpg")}/>
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -42,7 +62,7 @@ const styles = StyleSheet.create({
   },
   imageStyle:{
     width:300,
-    height:200
+    height:300
   },
   scrollView:{
     marginHorizontal:50,
@@ -57,4 +77,9 @@ const styles = StyleSheet.create({
     color:'#00542D',
     fontSize: 30,
   },
+
+  image:{
+    width:100,
+    height:100
+ }
 });
