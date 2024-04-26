@@ -1,16 +1,39 @@
 import {NavigationContainer} from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, Image, ScrollView,  Alert, TextInput, ImageBackground, Button} from 'react-native';
+import  { useState } from 'react';
 import {images, names, nameList} from './imageList.js';
 import {Stack, MyStack} from './navigation.js';
+
 
 // onPress={() => console.log('You tapped the button!')}/>
 // <Image source={images.id=2} style={styles.imageStyle}/>
 // <Image source={images.id=1} style={styles.imageStyle}/>
-export default function App() {
-  return (
-    <NavigationContainer>
-      <View style={styles.container}>
+
+/*
+function printID(){
+  console.log(images.id);
+}
+
+  <div> 
+      <input 
+        type="text"
+        value={id}
+        onClick = {(e) => printID(console.log('hello')) }
+      /> 
+    </div>
+*/
+function Example(){
+  
+  // Declare a new state variable, which we'll call "count"
+    const[pictureId,setPictureId] = useState(5);
+    const newId = () => setPictureId(2);
+    console.log(pictureId);
+    
+  }
+//onPress={() => console.log('You tapped the button!')}/>
+//onPress={() => Example()}/> 
+/*
       <Pressable 
       onPress={()=> console.log("Pressed Button!")}
       style={ ( { pressed } ) => {
@@ -18,11 +41,20 @@ export default function App() {
         }>
       <Image source= {require("./assets/pizza.jpg")} style={styles.imageStyle}/>      
       </Pressable>
+*/
 
+/*
+export default function App() {
+  return (
+    <NavigationContainer>
+      <View style={styles.container}>
+      <Image source={images.id=1} style={styles.imageStyle}/>
+      <Example />
       <Button 
       title="Next" 
-      color='blue' 
-      onPress={() => console.log('You tapped the button!')}/>
+      color='blue'
+      onPress={() => Example()}/>
+      
 
 
       <StatusBar style="auto" />      
@@ -30,6 +62,28 @@ export default function App() {
     </NavigationContainer> 
   );
 }
+*/
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <View style={styles.container}>
+      <Image source={images.id=1} style={styles.imageStyle}/>
+      <Example />
+      <Button 
+      title="Next" 
+      color='blue'
+      onPress={() => console.log('Press')}/>
+      
+
+
+      <StatusBar style="auto" />      
+      </View>    
+    </NavigationContainer> 
+  );
+}
+
+
 //<Image source={imageOne} style={styles.imageStyle}></Image>
 //<Image source={imageTwo} style={styles.imageStyle}></Image>
 //const imageOne = require('./assets/pizza.jpg')

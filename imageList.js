@@ -5,13 +5,13 @@ import { StyleSheet, Text, View, Pressable, Image, ScrollView,  Alert, TextInput
 export const images = [
     {
       id: 1,
-      image: require("./assets/pizza.jpg"),
+      image:require("./assets/pizza.jpg"),
       description: 'This is a picture of a Pizza!'
     },
 
     {
       id: 2,
-      image: require("./assets/Classic-Lasagna.jpg"),
+      image:require("./assets/Classic-Lasagna.jpg"),
       description: 'This is a picture of a Lasagna!'
     },
     // Add more images as needed
